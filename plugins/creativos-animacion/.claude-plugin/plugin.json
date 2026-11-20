@@ -1,0 +1,8 @@
+{
+  "name": "creativos-animacion",
+  "description": "Animación con HyperFrames (HTML + GSAP): composiciones, captions animados, gráficos de datos, explicativos, slideshows, videos desde una web o una canción, recortes de cámara y los controles de calidad del render.",
+  "author": {
+    "name": "Alex"
+  },
+  "keywords": ["hyperframes", "animación", "gsap", "motion graphics", "captions", "español"]
+}

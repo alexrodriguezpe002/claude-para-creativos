@@ -1,0 +1,16 @@
+{
+  "description": "Pista para «¿ya está el timeline?»: si el asistente de edición está instalado en esta computadora, le recuerda a Claude dónde mirar. Sin asistente instalado no hace nada.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/pista-asistente.sh\"; exit 0",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

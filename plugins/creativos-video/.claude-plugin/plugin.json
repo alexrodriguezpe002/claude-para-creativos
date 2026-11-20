@@ -1,0 +1,8 @@
+{
+  "name": "creativos-video",
+  "description": "Edición de video: ordenar material, transcribir, armar en Premiere, auditar subtítulos, limpiar audio y cortes, música de fondo, imágenes y videos con Higgsfield, de brief a guion, el respaldo del material de cámara (copia verificada a 2 discos, informe y vigilante de tarjetas), sincronizar el audio de la grabadora con los clips, el asistente de edición (cuando termina la copia de ShotPut u otro programa, deja el timeline del día listo para Premiere) y las versiones para cada red (9:16, 1:1, 4:5, 16:9 y WhatsApp).",
+  "author": {
+    "name": "Alex"
+  },
+  "keywords": ["video", "premiere", "subtítulos", "audio", "música", "higgsfield", "español"]
+}

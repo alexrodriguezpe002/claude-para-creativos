@@ -1,0 +1,6 @@
+# Los scripts tienen que llegar con fin de línea de Mac y Linux (LF) también en Windows.
+# Con el de Windows (CRLF), bash y zsh fallan sin avisar («\r: command not found»).
+*.sh      text eol=lf
+*.zsh     text eol=lf
+*.command text eol=lf
+*.py      text eol=lf

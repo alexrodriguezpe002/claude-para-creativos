@@ -1,0 +1,13 @@
+{
+  "width": 1080, "height": 1920, "fps": "24000/1001", "duration": 7,
+  "colores": {"azul": "#0F5C9E", "naranja": "#F2711C", "papel": "#f7f7f7", "papel2": "#ececec", "tierra": "#d4e2ee"},
+  "font_file": "assets/fonts/marca.ttf",
+  "geo": "geo.json",
+  "pais": "ECUADOR",
+  "valor": 75, "sufijo": "%",
+  "palabras": ["TIENE", "CELULAR"],
+  "subrayado_ancho": 520,
+  "semilla": 75,
+  "tiempos": {"contorno": 0.12, "pais": 1.5, "puntos": 1.6, "sube": 2.2, "dona": 2.45, "llena": 2.6, "llena_dur": 1.0,
+              "sufijo": 3.05, "pulso": 3.75, "palabra1": 4.95, "palabra2": 5.3, "subrayado": 5.55}
+}

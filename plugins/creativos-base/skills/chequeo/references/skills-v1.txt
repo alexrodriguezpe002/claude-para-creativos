@@ -1,0 +1,53 @@
+# Skills que instalaba el kit v1 en ~/.claude/skills y el plugin donde están ahora. Las usan
+# chequeo y actualizar-kit para reconocer una instalación vieja. Formato: <skill> <plugin>; las
+# líneas que empiezan con # no cuentan. Las dos últimas el kit v1 ya las había retirado (las
+# reemplazan mdfilesummary y skill-retro).
+actualizar-kit creativos-base
+auditoria-procesos creativos-oficina
+brief-a-guion creativos-video
+caption-creator creativos-animacion
+clean-audio-cuts creativos-video
+clean-captions creativos-animacion
+conectar-celular creativos-base
+conoceme creativos-base
+crear-skill creativos-base
+embedded-captions creativos-animacion
+faceless-explainer creativos-animacion
+general-video creativos-animacion
+grafica-dato creativos-animacion
+gsap creativos-animacion
+higgsfield-a-premiere creativos-video
+higgsfield-imagen-video creativos-video
+hyperframes creativos-animacion
+hyperframes-animation creativos-animacion
+hyperframes-audio creativos-animacion
+hyperframes-cli creativos-animacion
+hyperframes-core creativos-animacion
+hyperframes-creative creativos-animacion
+hyperframes-keyframes creativos-animacion
+hyperframes-mp4-render creativos-animacion
+hyperframes-registry creativos-animacion
+hyperframes-studio creativos-animacion
+mac-cleanup creativos-base
+mdfilesummary creativos-base
+media-use creativos-animacion
+motion-graphics creativos-animacion
+music-bed creativos-video
+music-to-video creativos-animacion
+open-hyperframes-studio creativos-animacion
+ordenar-material creativos-video
+podcast-audio-clean creativos-video
+podcast-captions creativos-animacion
+preguntame creativos-base
+product-launch-video creativos-animacion
+skill-retro creativos-base
+slideshow creativos-animacion
+subtitle-audit creativos-video
+talking-head-recut creativos-animacion
+transcribir creativos-video
+video-a-premiere creativos-video
+video-quality-gates creativos-animacion
+video-studio creativos-animacion
+website-to-hyperframes creativos-animacion
+registro-proyecto creativos-base
+retro creativos-base

@@ -1,0 +1,31 @@
+{
+  "name": "creativos",
+  "owner": {
+    "name": "Alex"
+  },
+  "metadata": {
+    "description": "Kit de Claude para creativos: skills de video, animación y oficina en español, más el chequeo de la computadora, el perfil y el registro de cada proyecto."
+  },
+  "plugins": [
+    {
+      "name": "creativos-base",
+      "source": "./plugins/creativos-base",
+      "description": "Para todos: chequeo de la computadora, perfil (conoceme), registro de proyectos (MD FILES), crear y mejorar skills, proponer y revisar mejoras del kit, la ficha de equipo, conectar el celular y limpiar la Mac."
+    },
+    {
+      "name": "creativos-video",
+      "source": "./plugins/creativos-video",
+      "description": "Edición: respaldo verificado de las tarjetas, ordenar material, sincronizar el audio y dejar el timeline del día listo al terminar la copia, transcribir, armar en Premiere, subtítulos, limpieza de audio, música, versiones para cada red, imágenes y videos con Higgsfield y guiones."
+    },
+    {
+      "name": "creativos-animacion",
+      "source": "./plugins/creativos-animacion",
+      "description": "Animación con HyperFrames: gráficos, captions animados, explicativos, slideshows, videos desde una web o una canción, y los controles de calidad del render."
+    },
+    {
+      "name": "creativos-oficina",
+      "source": "./plugins/creativos-oficina",
+      "description": "Procesos de oficina: revisar y mejorar cómo se hace un trabajo paso a paso (auditoría de procesos)."
+    }
+  ]
+}

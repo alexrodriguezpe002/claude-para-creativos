@@ -1,0 +1,8 @@
+{
+  "name": "creativos-base",
+  "description": "Para todos: chequeo de la computadora, perfil (conoceme), registro de proyectos (MD FILES), crear y mejorar skills, proponer y revisar mejoras del kit, la ficha de equipo (quién es quién, en el repo de un equipo), conectar el celular, respaldar lo de Claude en tu GitHub privado y limpiar la Mac. Trae los hooks del registro, el respaldo diario y el sonido al terminar.",
+  "author": {
+    "name": "Alex"
+  },
+  "keywords": ["creativos", "español", "perfil", "chequeo", "registro", "md files"]
+}
