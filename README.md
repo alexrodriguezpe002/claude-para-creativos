@@ -11,15 +11,18 @@ Lo armó Alex (editor de video) con lo que le funcionó en su propio trabajo. De
 
 1. En la app de Claude (puede estar en inglés): **Customize › Plugins › + Add › Add marketplace** (en español:
    Personalizar › Plugins › Agregar). En **URL** escribe `alexrodriguezpe002/claude-para-creativos`, o la ruta de la carpeta del kit
-   si te la pasaron en un disco o un ZIP, y toca **Sync**. Escribir `/plugin` en una conversación de Code abre la
-   misma pantalla.
+   si te la pasaron en un disco o un ZIP, y toca **Sync**. No aparece ningún mensaje: abajo salen los 4 plugins del
+   kit. Escribir `/plugin` en una conversación de Code abre la misma pantalla.
    - El repositorio es público: no pide cuenta de GitHub ni ningún código. Si dice «This marketplace could not be
      accessed… enter a personal access token», la URL quedó mal escrita: revísala. No hace falta crear ningún token.
-2. Cierra la app por completo y vuelve a abrirla. La app puede instalar los 4 plugins: el chequeo deja los tuyos.
-3. Abre la pestaña **Code** en tu carpeta de usuario y escribe: **"haz el chequeo"**. Claude revisa qué le falta a
-   tu computadora, te pregunta qué haces para dejar solo los plugins de tu trabajo y arregla lo demás contigo, con
-   tu permiso.
-4. Escribe **"conóceme"** y pega lo que exportaste de ChatGPT: queda tu perfil.
+2. Instala **Creativos base** y los de tu trabajo (video, animación u oficina): en cada uno, la flechita de **Add to
+   this computer** › **Install for me**. Las opciones «Install for project» lo dejan solo en una carpeta. (Desde
+   una carpeta del kit, la app los instala los 4 sola: el chequeo deja los tuyos.)
+3. Cierra la app por completo y vuelve a abrirla.
+4. Abre la pestaña **Code** en tu carpeta de usuario y escribe: **"haz el chequeo"**. Claude revisa qué le falta a
+   tu computadora, te pregunta qué haces (lo guarda para la próxima) para dejar solo los plugins de tu trabajo y
+   arregla lo demás contigo, con tu permiso.
+5. Escribe **"conóceme"** y pega lo que exportaste de ChatGPT: queda tu perfil.
 
 Los nombres de los botones pueden cambiar con la versión de la app. Si algo no aparece, `INSTALAR.md` tiene otros
 caminos (la pestaña Code o la terminal), y en una Mac también sirve `zsh instalar.sh`.

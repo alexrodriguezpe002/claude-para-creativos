@@ -490,10 +490,35 @@ def config_guardar(a):
     return 0
 
 
+ETIQUETA = "com.creativos.asistente-edicion"   # el agente que deja instalar_asistente.py en Mac
+TAREA_WIN = "Asistente de edicion"             # la tarea programada en Windows
+
+
+def vigilando():
+    """(activo, texto): ¿el vigilante está instalado y cargado? Sin él no se arma ningún timeline nuevo, aunque la
+    configuración y el último timeline sigan ahí (repaso del vie 20-11-2026: estaba desinstalado y se culpó al disco)."""
+    try:
+        if sys.platform == "darwin":
+            plist = Path.home() / "Library" / "LaunchAgents" / f"{ETIQUETA}.plist"
+            if not plist.exists():
+                return False, "no: el asistente no está instalado en esta computadora"
+            r = subprocess.run(["launchctl", "print", f"gui/{os.getuid()}/{ETIQUETA}"],
+                               capture_output=True, text=True, timeout=10)
+            return (True, "sí") if r.returncode == 0 else (False, "no: está instalado pero apagado")
+        if os.name == "nt":
+            r = subprocess.run(["schtasks", "/Query", "/TN", TAREA_WIN], capture_output=True, text=True, timeout=10)
+            return (True, "sí") if r.returncode == 0 else (False, "no: el asistente no está instalado en esta computadora")
+    except Exception as e:  # noqa: BLE001
+        return False, f"no lo pude saber ({e})"
+    return False, "no: en este sistema no hay vigilante"
+
+
 def estado():
     cfg = _leer("config.json")
     est = _leer("estado.json")
     print(f"Asistente de edición (versión {VERSION}) · configuración: {dir_sistema() / 'config.json'}")
+    activo, texto = vigilando()
+    print(f"  Vigilando ahora: {'✅' if activo else '❌'} {texto}")
     if not cfg.get("carpeta"):
         print("  ❌ Sin configurar: falta elegir la carpeta a vigilar y dónde dejar el timeline.")
         return
@@ -503,7 +528,9 @@ def estado():
           f"{cfg.get('espera', 5)} min sin cambios (sin señal: {cfg.get('sin_senal', 15)} min)")
     u = est.get("ultimo")
     if u:
-        print(f"  Último timeline: {cuando(u['ts'])} → {u['xml']}")
+        sigue = os.path.exists(u["xml"])
+        print(f"  Último timeline: {cuando(u['ts'])} → {u['xml']}"
+              + ("" if sigue else "  (⚠️ ese archivo ya no está ahí: no dar el link)"))
         print(f"     {u.get('resumen', '')}")
     else:
         print("  Último timeline: todavía ninguno.")
@@ -518,6 +545,9 @@ def estado():
     if est.get("revisado"):
         print(f"  Última revisión: {cuando(est['revisado'])}")
     print(f"  Registro: {dir_sistema() / 'asistente.log'}")
+    if not activo:
+        print("  ⚠️ Mientras no vigile, no arma timelines nuevos. Para prenderlo: instalar_asistente.py instalar "
+              "(o «actualizar» si ya estaba).")
 
 
 # ───────────────────────────── autoprueba ─────────────────────────────

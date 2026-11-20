@@ -38,6 +38,8 @@ abrirla**.
    from source»; probado el jue 19-11-2026).
 4. Contarle qué cambió: el `installLocation` del marketplace en `~/.claude/plugins/known_marketplaces.json` es
    una copia de git; `git -C <installLocation> log --oneline <versión anterior>..HEAD`, en 2 o 3 líneas sin jerga.
+   Si el kit viene de una carpeta que no es una copia de git (un disco o un ZIP), no hay historial: decirle que
+   quedó al día con esa carpeta y que la lista de cambios la tiene quien se la pasó.
 5. Que **cierre la app por completo y la vuelva a abrir** (o cierre y abra la terminal): las sesiones abiertas
    no ven lo nuevo.
 6. Para que llegue solo la próxima vez (opcional, solo si usa la terminal): `claude` › `/plugin` › Marketplaces ›

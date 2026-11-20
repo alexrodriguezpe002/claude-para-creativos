@@ -121,7 +121,8 @@ Después de eso, cada vez que reinicia la compu solo hay que tocar ▷ otra vez 
   reinició la compu: abre Claude y di **«conecta el celular»**.
 - Si macOS ofrece instalar actualizaciones «esta noche», elige **«Remind Me Later»**: el reinicio corta la conexión.
 - Para desconectar: haz clic dentro de esa pestaña y aprieta **⌃ control + C** (no ⌘ cmd + C, que copia; en Windows,
-  Ctrl + C), o ciérrala.
+  Ctrl + C), o ciérrala. Al desconectar puede aparecer un instante «✔︎ Connected»: es normal; termina con
+  «Desconectado. Ya puedes cerrar esta pestaña.»
 
 ## Problemas conocidos
 

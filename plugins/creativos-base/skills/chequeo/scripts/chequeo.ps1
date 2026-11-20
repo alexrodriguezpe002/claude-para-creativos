@@ -127,9 +127,29 @@ if (Tiene "${Prefijo}base") {
   if ($sincronizados.Count -gt 0) { $txt += " · desde la app: " + ($sincronizados -join " ") }
   Ok "plugins del kit" $txt.Trim()
 } else { Mal "plugins del kit" "no está instalado ${Prefijo}base" "plugins-instalar" }
-# La app instala todos los plugins de la tienda: cada uno suma skills a cada sesión
-if ((Tiene "${Prefijo}video") -and (Tiene "${Prefijo}animacion") -and (Tiene "${Prefijo}oficina")) {
-  Aviso "plugins de más" "están los 4 grupos: cada uno suma skills a cada sesión; deja solo los de tu trabajo" "plugins-elegir"
+# Qué grupos usa la persona: lo que eligió en plugins-elegir, guardado en ~\MI-SISTEMA-CLAUDE\grupos.txt. Sobrevive a
+# reinstalar el kit (quitar la tienda borra lo prendido y apagado) y no vuelve a avisar a quien usa los 3 grupos.
+$gruposTxt = Join-Path $HOME "MI-SISTEMA-CLAUDE\grupos.txt"
+if (Tiene "${Prefijo}base") {
+  if (Test-Path $gruposTxt) {
+    $elegidos = @((Get-Content -Raw -Encoding UTF8 $gruposTxt) -split "[\s,]+" |
+      Where-Object { $_ -in @("video", "animacion", "oficina") } | Sort-Object -Unique)
+    $faltan = @(); $sobran = @()
+    foreach ($g in @("video", "animacion", "oficina")) {
+      if ($elegidos -contains $g) { if (-not (Tiene "${Prefijo}$g")) { $faltan += $g } }
+      elseif (Tiene "${Prefijo}$g") { $sobran += $g }
+    }
+    if ($faltan.Count -gt 0) {
+      Aviso "grupos elegidos" ("elegiste " + ($faltan -join " ") + " pero no está instalado o está apagado") "plugins-elegir"
+    } elseif ($sobran.Count -gt 0) {
+      Aviso "plugins de más" ("está prendido " + ($sobran -join " ") + " y no lo elegiste: suma skills a cada sesión") "plugins-elegir"
+    } else {
+      $txtG = if ($elegidos.Count -gt 0) { $elegidos -join " " } else { "solo el base" }
+      Ok "grupos elegidos" $txtG
+    }
+  } else {
+    Aviso "grupos" "falta elegir qué haces (video, animación, procesos) para dejar solo esos plugins" "plugins-elegir"
+  }
 }
 $video = (Tiene "${Prefijo}video") -or (Tiene "${Prefijo}animacion")
 

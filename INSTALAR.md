@@ -23,8 +23,13 @@ aparece con ese nombre, pedirle una captura.
   If this is a private repository hosted on github.com, enter a personal access token below.», la URL quedó mal
   escrita: revisarla. Con el repo **privado de un equipo** sale lo mismo, y ahí no hacer que la persona cree tokens:
   usar C con su sesión de GitHub.
-- La app puede instalar los 4 plugins de una vez (pasó en la prueba del jue 19-11-2026): el chequeo (paso 4)
-  pregunta cuáles usa y apaga el resto.
+- Después de **Sync** no sale ningún mensaje: abajo aparecen los 4 plugins con **Add to this computer**. Que toque
+  la flechita › **Install for me** en `Creativos base` y en los de su grupo (probado el vie 20-11-2026). Las opciones
+  «Install for project» lo dejarían solo en una carpeta. Desde una carpeta (B), en cambio, la app los instala los 4
+  sola; el chequeo (paso 4) pregunta qué hace y deja solo esos.
+- Para quitar la tienda (por ejemplo, para pasar de la carpeta al repo): desde Customize › Plugins o con
+  `claude plugin marketplace remove creativos`. Borra lo prendido y apagado de cada plugin; el chequeo lo vuelve a
+  dejar como la persona eligió (lo guarda en `~/MI-SISTEMA-CLAUDE/grupos.txt`).
 
 **B. Desde una carpeta** (la del disco o un ZIP del kit, descomprimido): igual que A, pero en **URL** la ruta de la
 carpeta que tiene `.claude-plugin/marketplace.json`. Probado: instala igual. Para traer mejoras, "actualiza el kit"

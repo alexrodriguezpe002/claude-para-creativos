@@ -51,13 +51,20 @@ Una pregunta con opciones (AskUserQuestion), la recomendada primero:
 
 ## 4. Los arreglos (en este orden)
 
-**`plugins-elegir`** — Va primero: decide si hacen falta ffmpeg y node. La app instala los 4 plugins del kit y cada
-uno suma skills a cada sesión (más gasto, y Claude elige peor la skill). Una pregunta con varias respuestas
-(AskUserQuestion, multiSelect): ¿qué haces? **Video y edición** (`creativos-video`) · **Animación con código**
-(`creativos-animacion`) · **Procesos y oficina** (`creativos-oficina`). El base va siempre. Con la copia de
-`settings.json` antes, apagar los que no eligió en `"enabledPlugins"`: `"creativos-animacion@creativos": false` (lo
-que va después de `@` es el de `installed_plugins.json`). Se vuelven a prender con `true` o en Customize › Plugins.
-Vale para las sesiones nuevas.
+**`plugins-elegir`** — Va primero: decide si hacen falta ffmpeg y node. Cada plugin suma skills a cada sesión (más
+gasto, y Claude elige peor la skill): quedan solo los de su trabajo. Sale con «grupos» (todavía no eligió), «plugins
+de más» (hay prendido uno que no eligió) o «grupos elegidos» (falta uno que eligió).
+1. **Qué hace.** Si existe `~/MI-SISTEMA-CLAUDE/grupos.txt` (Windows: `%USERPROFILE%\MI-SISTEMA-CLAUDE\grupos.txt`),
+   ya lo eligió: no preguntar de nuevo, salvo que la persona diga que cambió. Si no existe, una pregunta con varias
+   respuestas (AskUserQuestion, multiSelect): ¿qué haces? **Video y edición** (`video`) · **Animación con código**
+   (`animacion`) · **Procesos y oficina** (`oficina`). El base va siempre. Guardar la respuesta en `grupos.txt`,
+   una palabra por línea (vacío = solo el base). Con eso el chequeo no vuelve a avisar, aunque use los 3.
+2. **Dejarlo así.** Con la copia de `settings.json` antes, en `"enabledPlugins"`: `false` para los que no eligió
+   (`"creativos-animacion@creativos": false`; lo que va después de `@` es el de `installed_plugins.json`) y `true`
+   para los elegidos. Si uno elegido no está instalado: en la app, Customize › Plugins › en ese plugin, la flechita
+   de «Add to this computer» › **Install for me**; o `claude plugin install creativos-<grupo>@creativos`.
+   Quitar la tienda borra lo prendido y apagado: con `grupos.txt` se vuelve a dejar igual sin preguntar.
+   Vale para las sesiones nuevas.
 
 **`git-mac`** — Herramientas de línea de comandos de Apple (traen git y Python 3). Avisar antes: *"Va a salir una
 ventana de Apple: toca Instalar y acepta. Tarda 5 a 15 minutos."* Correr `xcode-select --install` y esperar a que
@@ -103,7 +110,9 @@ la skill `video-quality-gates` (una vez; deja lista la medición en el navegador
 
 **`plugins-instalar`** — Los plugins del kit se instalan desde la app (puede estar en inglés): Customize › Plugins ›
 + Add › Add marketplace, con el repo del kit (`alexrodriguezpe002/claude-para-creativos`, público: no pide cuenta ni token) o la
-ruta de su carpeta, y Sync. Con el repo privado de un equipo la app pide un *personal access token*: no hacer que la
+ruta de su carpeta, y Sync. No sale ningún mensaje: abajo aparecen los plugins; en `Creativos base` y en los de su
+grupo, la flechita de «Add to this computer» › **Install for me** (desde una carpeta, la app los instala los 4
+sola). Con el repo privado de un equipo la app pide un *personal access token*: no hacer que la
 persona lo cree; usar la carpeta o, con `gh` conectado, el comando `claude` (`claude plugin marketplace add
 <dueño>/<repo>` y `claude plugin install <prefijo>-base@<marketplace>`).
 Detalle en el `INSTALAR.md` del kit.

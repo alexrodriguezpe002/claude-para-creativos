@@ -82,7 +82,9 @@ cambios.
 
 ## 6. Desde el celular (Remote Control)
 - «¿ya está el timeline?» → `<py> "<asistente.py>" --estado` y contestar en dos líneas: cuándo, cuántos clips
-  sincronizados y cómo se llama el XML (fechas con el día de la semana).
+  sincronizados y cómo se llama el XML (fechas con el día de la semana). Si dice «Vigilando ahora: ❌», decirlo primero
+  (no va a armar nada nuevo hasta que se instale) en vez de culpar al disco; si dice que el archivo ya no está, no dar
+  el link.
 - «ármalo ya» → `<py> "<asistente.py>" --ahora` (si la carpeta está cambiando, espera a que termine la copia).
 - «¿qué clips hay que revisar?» → los 🟡 y ❌ de `informe_sincronizacion.json`, en la carpeta del timeline.
 

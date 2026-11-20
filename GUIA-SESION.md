@@ -64,11 +64,13 @@ Si el tiempo no alcanza: la primera skill puede quedar como tarea con fecha, per
    **Sync**.
    - El repo es público: no pide cuenta de GitHub ni token. Si sale «This marketplace could not be accessed… enter a
      personal access token below», la URL quedó mal escrita. No crear tokens.
-3. En la prueba quedaron instalados **los 4 plugins** («Creativos base», «Creativos video», «Creativos animacion» y
-   «Creativos oficina», con «Installed locally»). No hay «Sincronizar automáticamente»: las mejoras llegan con
-   «actualiza el kit».
-4. Cerrar la app por completo y volver a abrirla. El chequeo (3.3) les pregunta qué hacen y apaga los plugins que
-   no usan.
+3. No sale ningún mensaje: abajo aparecen los 4 plugins («Creativos base», «Creativos video», «Creativos animacion»
+   y «Creativos oficina») con **Add to this computer**. Cada uno instala **Creativos base** y los de su grupo: la
+   flechita › **Install for me** (probado el vie 20-11-2026). Grupo de procesos: base + oficina; grupo de video:
+   base + video, y animación solo si anima con código. Desde la carpeta del disco, en cambio, la app instala los 4
+   sola. No hay «Sincronizar automáticamente»: las mejoras llegan con «actualiza el kit».
+4. Cerrar la app por completo y volver a abrirla. El chequeo (3.3) les pregunta qué hacen, lo guarda y deja solo
+   esos plugins.
 
 Si el botón no aparece: en la pestaña Code, pedirle a Claude "instala el kit siguiendo INSTALAR.md" (camino B o C).
 En una Mac, el respaldo de siempre: clonar el repo y `zsh instalar.sh`.
@@ -159,6 +161,8 @@ La primera vez que transcribe, descarga el modelo (2–5 min): aprovechar para h
 | Al agregar la tienda desde la pestaña Code o la terminal sale «unable to get password» o «SSH host key is not in your known_hosts» | Falta la sesión de GitHub en esa compu (no es el kit): `gh auth login` y `gh auth setup-git`, que es lo que hace «haz el chequeo». Después, agregar la tienda de nuevo |
 | macOS avisa «App Background Activity — "python" can run in the background» | Es el asistente de edición o el vigilante de tarjetas, que corren solos. Es normal: no hay que tocar nada |
 | gh dice «A new release of gh is available… brew upgrade gh» | Se puede ignorar |
+| Después de **Sync** no pasa nada | Es normal: no sale mensaje. Abajo están los plugins: «Add to this computer» › «Install for me» |
+| Al desconectar el celular aparece un instante «Connected» | Es normal: termina con «Desconectado. Ya puedes cerrar esta pestaña.» |
 | Control+C no desconecta el celular | Clic dentro de la pestaña que dice Connected y **⌃ control + C** (⌘ cmd + C copia). Después de un segundo ▷ quedan dos pestañas: es la que dice Connected |
 | En el celular, la sesión cae en otra compu | Pasa con dos usuarios en la misma Mac (a un participante no). Al abrir la sesión, elegir el entorno **PROYECTOS** |
 | El registro de proyectos, el respaldo o el sonido no andan en Cowork | Los automatismos solo corren en la pestaña Code. En Cowork se pide: «actualiza el registro del proyecto» |

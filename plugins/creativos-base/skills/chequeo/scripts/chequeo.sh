@@ -139,9 +139,30 @@ if tiene "${PREFIJO}base"; then
 else
   mal "plugins del kit" "no está instalado ${PREFIJO}base" "plugins-instalar"
 fi
-# La app instala todos los plugins de la tienda: cada uno suma skills a cada sesión (prueba del jue 19-11-2026)
-if tiene "${PREFIJO}video" && tiene "${PREFIJO}animacion" && tiene "${PREFIJO}oficina"; then
-  aviso "plugins de más" "están los 4 grupos: cada uno suma skills a cada sesión; deja solo los de tu trabajo" "plugins-elegir"
+# Qué grupos usa la persona: lo que eligió en plugins-elegir, guardado en ~/MI-SISTEMA-CLAUDE/grupos.txt. Sobrevive a
+# reinstalar el kit (quitar la tienda borra lo prendido y apagado: repaso del vie 20-11-2026) y no vuelve a avisar a
+# quien usa los 3 grupos. Cada plugin de más suma skills a cada sesión.
+GRUPOS_TXT="$HOME_DIR/MI-SISTEMA-CLAUDE/grupos.txt"
+if tiene "${PREFIJO}base"; then
+  if [ -f "$GRUPOS_TXT" ]; then
+    elegidos=$(tr -s ' \t\r\n,' '\n' < "$GRUPOS_TXT" | grep -E '^(video|animacion|oficina)$' | sort -u | tr '\n' ' ' | sed 's/ *$//')
+    faltan=""; sobran=""
+    for g in video animacion oficina; do
+      case " $elegidos " in
+        *" $g "*) tiene "${PREFIJO}$g" || faltan="$faltan $g" ;;
+        *) if tiene "${PREFIJO}$g"; then sobran="$sobran $g"; fi ;;
+      esac
+    done
+    if [ -n "$faltan" ]; then
+      aviso "grupos elegidos" "elegiste${faltan} pero no está instalado o está apagado" "plugins-elegir"
+    elif [ -n "$sobran" ]; then
+      aviso "plugins de más" "está prendido${sobran} y no lo elegiste: suma skills a cada sesión" "plugins-elegir"
+    else
+      ok "grupos elegidos" "${elegidos:-solo el base}"
+    fi
+  else
+    aviso "grupos" "falta elegir qué haces (video, animación, procesos) para dejar solo esos plugins" "plugins-elegir"
+  fi
 fi
 VIDEO=0
 if tiene "${PREFIJO}video" || tiene "${PREFIJO}animacion"; then VIDEO=1; fi
